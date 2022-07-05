@@ -16,8 +16,6 @@ commands:
     steps:
       - run: echo << parameters.id >>
 
-
-
 jobs:
   # Exercise: Creating a Simple Workflow
   # Exercise: Environment Variables
