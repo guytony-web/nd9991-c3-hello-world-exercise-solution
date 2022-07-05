@@ -6,7 +6,8 @@ Resources:
   EC2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
-      SecurityGroups:
+      #SecurityGroups:
+      SecurityGroupIds:
         - !Ref InstanceSecurityGroup
       #KeyName: AWS_Keypair_ND9991
       KeyName: ansible
