@@ -13,6 +13,7 @@ Resources:
       ImageId: 'ami-09e67e426f25ce0d7' # you may need to find out what instance types are available in your region - use https://cloud-images.ubuntu.com/locator/ec2/
       InstanceType: t3.micro
       #VpcId: vpc-078b929be4dba189c
+      VPCId:  vpc-078b929be4dba189c
       SubnetId: subnet-00069b22a0763b1c8
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
