@@ -1,20 +1,28 @@
 ---
-- name: "upgrade packages."
+- name: "update yum packages."
   become: true
-  apt:
-    upgrade: "yes"
+  yum:
+    update_cache: true
 
-- name: "install dependencies."
+- name: "upgrade packages"
   become: true
-  apt:
-    name: ["nodejs", "npm"]
+  yum:
+    name: "*"
     state: latest
-    update_cache: yes
+
+- name: "install node dependencies"
+  become: true
+  yum:
+    name:
+      - nodejs
+      #- npm # TODO: additional steps required before installing this
+    state: present
+    update_cache: true
 
 - name: "install pm2"
   become: true
   npm:
     name: pm2
-    global: yes
-    production: yes
+    global: true
+    production: true
     state: present
