@@ -21,9 +21,9 @@ Resources:
         GroupSet: myVPCEC2SecurityGroup          
         SubnetId: subnet-00069b22a0763b1c8          
   InstanceSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
-    GroupName:  myVPCEC2SecurityGroup
+    Type: 'AWS::EC2::SecurityGroup'    
     Properties:
+      GroupName:  myVPCEC2SecurityGroup
       VpcId:  vpc-078b929be4dba189c
       GroupDescription: Enable SSH access via port 22
       SecurityGroupIngress:
