@@ -15,9 +15,9 @@ Resources:
       InstanceType: t3.micro
       #VpcId: vpc-078b929be4dba189c      
       SubnetId: subnet-00069b22a0763b1c8
-      NetworkInterfaces: 
-      - AssociatePublicIpAddress: "true"
-        DeviceIndex: "0"
+      #NetworkInterfaces: 
+      #- AssociatePublicIpAddress: "true"
+      #  DeviceIndex: "0"
         #GroupSet: "myVPCEC2SecurityGroup"          
         #SubnetId: subnet-00069b22a0763b1c8          
   InstanceSecurityGroup:
