@@ -79,7 +79,7 @@ jobs:
     steps:     
       - run:
           name: test job
-          command: exit 1
+          command: return 1
       - destroy_environment
 
 
@@ -93,4 +93,6 @@ workflows:
       - create_infrastructure
       #- configure_infrastructure
       - smoke_test
+          require 
+            create_infrastructure
  
