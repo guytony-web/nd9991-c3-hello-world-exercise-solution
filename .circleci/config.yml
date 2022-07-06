@@ -15,6 +15,16 @@ commands:
         type: string
     steps:
       - run: echo << parameters.id >>
+  destroy_environment:
+    steps:
+      - run:
+          name: Destroy environment
+          # ${CIRCLE_WORKFLOW_ID} is a Built-in environment variable 
+          # ${CIRCLE_WORKFLOW_ID:0:5} takes the first 5 chars of the variable CIRCLE_CI_WORKFLOW_ID 
+          when: on_fail
+          command: |
+            aws cloudformation delete-stack --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5}
+
 
 jobs:
   # Exercise: Creating a Simple Workflow
@@ -66,20 +76,11 @@ jobs:
   smoke_test:
     docker:
       - image: alpine:latest
-    steps:
-      - run: apk add --update curl
+    steps:     
       - run:
-          name: smoke test
-          command: |
-            URL="https://blog.udacity.com/"
-            # Test if website exists
-            if curl -s --head ${URL} 
-            then
-              return 0
-            else
-              return 1
-            fi
-         
+          name: test job
+          command: return 1
+          - destroy_environment
 
 
 workflows:
@@ -90,6 +91,6 @@ workflows:
       # - welcome/run
       #- print_greetings    
       #- create_infrastructure
-      #- configure_infrastructure
+      - configure_infrastructure
       - smoke_test
  
