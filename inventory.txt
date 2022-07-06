@@ -1,2 +1,2 @@
-[web]
-ec2-54-196-128-232.compute-1.amazonaws.com
+[all]
+54.158.145.211
