@@ -80,7 +80,7 @@ jobs:
       - run:
           name: test job
           command: return 1
-          - destroy_environment
+      - destroy_environment
 
 
 workflows:
@@ -90,7 +90,7 @@ workflows:
     jobs:
       # - welcome/run
       #- print_greetings    
-      #- create_infrastructure
-      - configure_infrastructure
+      - create_infrastructure
+      #- configure_infrastructure
       - smoke_test
  
